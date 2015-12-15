@@ -4,13 +4,14 @@
     <title >Memory</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="memory.js"></script>
+    <link rel="stylesheet" href="memory.css">
   </head>
   <body>
     <h2>Memory Game</h2>
     <div ng-controller="MemoryBoardController as memoryBoard">
       <ul class="unstyled">
-        <li ng-repeat="card in memoryBoard.cards" ng-click="card.solved || memoryBoard.selectCard(card)">
-          {{ card.text }} {{ card.flipped }} {{ card.solved }}
+        <li ng-repeat="card in memoryBoard.cards" ng-click="card.solved || memoryBoard.selectCard(card)" class="base" ng-class="{covered: !card.flipped}">
+          <span ng-show="card.flipped">{{ card.text }} {{ card.flipped }} {{ card.solved }}</span>
         </li>
       </ul>
 
