@@ -1,5 +1,8 @@
 angular.module('memoryApp', [])
   .controller('MemoryBoardController', function() {
+
+    var animals = ['cow', 'horse', 'owl', 'dog,', 'cat']
+
     var memoryBoard = this;
     memoryBoard.cards = [
       {text:'cow', flipped:false, solved: false},
@@ -12,6 +15,10 @@ angular.module('memoryApp', [])
       {text:'dog', flipped:false, solved: false},
       {text:'cat', flipped:false, solved: false},
       {text:'cat', flipped:false, solved: false}];
+
+    memoryBoard.newGame = function(){
+      // Todo fill memoryBoard.cards her
+    }
 
 
     memoryBoard.numCardsSelected = 0;   
