@@ -4,11 +4,13 @@
     <title >Memory</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="memory.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="memory.css">
   </head>
   <body>
     <h2>Memory Game</h2>
-    <div ng-controller="MemoryBoardController as memoryBoard">
+    <div ng-controller="MemoryBoardController as memoryBoard" id="debug">
+      <button class="btn" ng-click="memoryBoard.newGame()">New Game</button>
       <ul class="unstyled">
         <li ng-repeat="card in memoryBoard.cards" ng-click="card.solved || memoryBoard.selectCard(card)" class="base" ng-class="{covered: !card.flipped}">
           <span ng-show="card.flipped">{{ card.text }} {{ card.flipped }} {{ card.solved }}</span>

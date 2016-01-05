@@ -14,13 +14,29 @@ angular.module('memoryApp', [])
       {text:'dog', flipped:false, solved: false},
       {text:'dog', flipped:false, solved: false},
       {text:'cat', flipped:false, solved: false},
-      {text:'cat', flipped:false, solved: false}];
+      {text:'cat', flipped:false, solved: false},
+      {text:'chicken', flipped:false, solved: false},
+      {text:'chicken', flipped:false, solved: false},
+      {text:'fish', flipped:false, solved: false},
+      {text:'fish', flipped:false, solved: false},
+      {text:'pig', flipped:false, solved: false},
+      {text:'pig', flipped:false, solved: false}];
 
     memoryBoard.newGame = function(){
-      // Todo fill memoryBoard.cards her
+      memoryBoard.board =[];
+      for (i=0; i<4; i++){
+        var row = [];
+        for (j=0; j<4; j++){
+          row.push(memoryBoard.cards.pop())
+        }
+        memoryBoard.board.push(row);
+      }
+      console.log('I was called');
+     // return board;
     }
 
-
+   // memoryBoard.board = memoryBoard.newGame();
+ 
     memoryBoard.numCardsSelected = 0;   
 
     memoryBoard.compare = function() {
@@ -56,5 +72,12 @@ angular.module('memoryApp', [])
       }
       memoryBoard.numCardsSelected += 1;     
     };
+
+    var init = function(){
+      memoryBoard.newGame();
+    };
+
+    // init();
+    // angular.element(document).ready(init);
 
   });
