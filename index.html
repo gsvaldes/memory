@@ -11,11 +11,17 @@
     <h2>Memory Game</h2>
     <div ng-controller="MemoryBoardController as memoryBoard" id="debug">
       <button class="btn" ng-click="memoryBoard.newGame()">New Game</button>
-      <ul class="unstyled">
-        <li ng-repeat="card in memoryBoard.cards" ng-click="card.solved || memoryBoard.selectCard(card)" class="base" ng-class="{covered: !card.flipped}">
-          <span ng-show="card.flipped">{{ card.text }} {{ card.flipped }} {{ card.solved }}</span>
-        </li>
-      </ul>
+
+      <div class="container">
+        <div ng-repeat="row in memoryBoard.board" class="row">
+          <div ng-repeat="card in row" 
+               class="col-md-3 base"
+               ng-click="card.solved || memoryBoard.selectCard(card)"
+               ng-class="{covered: !card.flipped}">
+            <span ng-show="card.flipped">{{ card.text }} {{ card.flipped }} {{ card.solved }}</span>
+          </div> <!--column-->
+        </div> <!--row-->
+      </div> <!--container-->
 
       <form ng-show="memoryBoard.numCardsSelected === 2">
         <input type="submit" value="Submit" ng-click="memoryBoard.compare()">

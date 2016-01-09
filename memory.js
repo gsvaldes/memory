@@ -23,19 +23,18 @@ angular.module('memoryApp', [])
       {text:'pig', flipped:false, solved: false}];
 
     memoryBoard.newGame = function(){
-      memoryBoard.board =[];
+      board =[];
       for (i=0; i<4; i++){
         var row = [];
         for (j=0; j<4; j++){
           row.push(memoryBoard.cards.pop())
         }
-        memoryBoard.board.push(row);
+        board.push(row);
       }
-      console.log('I was called');
-     // return board;
-    }
+      return board;
+    };
 
-   // memoryBoard.board = memoryBoard.newGame();
+    memoryBoard.board = memoryBoard.newGame();
  
     memoryBoard.numCardsSelected = 0;   
 
@@ -73,11 +72,10 @@ angular.module('memoryApp', [])
       memoryBoard.numCardsSelected += 1;     
     };
 
-    var init = function(){
-      memoryBoard.newGame();
-    };
+    // var init = function(){
+    //   memoryBoard.newGame();
+    // };
 
     // init();
-    // angular.element(document).ready(init);
 
   });
