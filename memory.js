@@ -27,7 +27,7 @@ angular.module('memoryApp', [])
       for (i=0; i<4; i++){
         var row = [];
         for (j=0; j<4; j++){
-          row.push(memoryBoard.cards.pop())
+          row.push(memoryBoard.cards[i*4 + j]);
         }
         board.push(row);
       }
